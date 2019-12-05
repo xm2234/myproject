@@ -1,7 +1,5 @@
 from django.db import models
 
-from django.utils.translation import gettext as _
-
 class Squirrel(models.Model):
     Latitude=models.FloatField(null=True)
     Longitude=models.FloatField(null=True)
@@ -55,5 +53,5 @@ class Squirrel(models.Model):
     Indifferent=models.BooleanField(null=True)
     Run_from=models.BooleanField(null=True)
 
-
-
+    def __str__(self):
+        return self.Unique_Squirrel_ID
