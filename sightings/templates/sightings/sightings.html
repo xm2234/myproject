@@ -2,14 +2,14 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>All Squirrels</title>
 </head>
 <body>
-	<h1><a href=add>ADD NEW SIGHTINGS</a></h1>
+	<h1><a href=add> Add New Sightings</a></h1>
 	<p>
-	{% for squirrel in sq_all %}
+	{% for squirrel in squirrels %}
 	<ul>
-		<li> {{squirrel}} <a href="{% url 'tracker:update' squirrel.unique_squirrel_id %}">EDIT</a></li>
+		<li> {{squirrel}} <a href="{% url 'sightings:update' squirrel.Unique_Squirrel_ID %}">EDIT</a></li>
 	</ul>
 	{% endfor %}
 	

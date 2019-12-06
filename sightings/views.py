@@ -8,14 +8,14 @@ from .forms import SquirrelForm
 def map(request):
     squirrels = Squirrel.objects.all()
     context = {
-        'squirrels':squirrels,
+        'sightings':squirrels,
     }
     return render(request, 'sightings/map.html',context)
 
 def sightings(request):
     sightings = Squirrel.objects.all()
     context = {
-        'sightings': sightings,
+        'squirrels': sightings,
     }
     return render(request, 'sightings/sightings.html',context)
 
