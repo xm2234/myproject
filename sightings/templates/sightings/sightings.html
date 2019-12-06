@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+	<h1><a href=add>ADD NEW SIGHTINGS</a></h1>
+	<p>
+	{% for squirrel in sq_all %}
+	<ul>
+		<li> {{squirrel}} <a href="{% url 'tracker:update' squirrel.unique_squirrel_id %}">EDIT</a></li>
+	</ul>
+	{% endfor %}
+	
+</body>
+</html>

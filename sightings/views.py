@@ -8,9 +8,16 @@ from .forms import SquirrelForm
 def map(request):
     squirrels = Squirrel.objects.all()
     context = {
-            'squirrels':squirrels,
+        'squirrels':squirrels,
     }
     return render(request, 'sightings/map.html',context)
+
+def sightings(request):
+    sightings = Squirrel.objects.all()
+    context = {
+        'sightings': sightings,
+    }
+    return render(request, 'sightings/sightings.html',context)
 
 def update(request, Unique_Squirrel_ID):
     squirrel = Squirrel.objects.filter(id=Unique_Squirrel_ID)[0]
