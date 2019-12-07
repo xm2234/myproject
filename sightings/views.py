@@ -1,6 +1,7 @@
 from django.http import HttpResponse
 from django.shortcuts import render
 from django.shortcuts import redirect
+from django.db import connection
 
 from .models import Squirrel
 from .forms import SquirrelForm
@@ -47,3 +48,20 @@ def add(request):
         'form': form,
     }
     return render(request, 'sightings/edit.html', context)
+
+def stats(request):
+    
+    #age
+    with connection.cursor() as c:
+        c.execute("select age,count(*) from sightings_Squirrel s group by age")
+        result = c.fetchall()
+        
+
+    #primary fur color
+
+    #location
+
+    #running
+
+    #chasing
+    return render(request,'sightings/stats.html',locals())
