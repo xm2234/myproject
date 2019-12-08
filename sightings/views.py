@@ -21,15 +21,7 @@ def sightings(request):
     return render(request, 'sightings/sightings.html',context)
 
 def update(request, Unique_Squirrel_ID):
-<<<<<<< HEAD
-<<<<<<< HEAD
     squirrel = Squirrel.objects.filter(Unique_Squirrel_ID = Unique_Squirrel_ID)[0]
-=======
-    squirrel = Squirrel.objects.filter(Unique_Squirrell_ID = Unique_Squirrel_ID)[0]
->>>>>>> 325a588dadaec3189844be19a148d2e10f157870
-=======
-    squirrel = Squirrel.objects.filter(Unique_Squirrell_ID = Unique_Squirrel_ID)[0]
->>>>>>> 325a588dadaec3189844be19a148d2e10f157870
     if request.method == 'Post':
         # check form data
         form = SquirrelForm(request.POST, instance=squirrel)
