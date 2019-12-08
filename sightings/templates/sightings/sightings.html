@@ -7,11 +7,10 @@
 <body>
 	<h1><a href=add> Add New Sightings</a></h1>
 	<p>
-	{% for squirrel in squirrels %}
 	<ul>
-		<li> {{squirrel}} <a href="{% url 'sightings:update' squirrel.Unique_Squirrel_ID %}">EDIT</a></li>
+	        {% for squirrel in squirrels %}
+		<li> {{squirrel}} <a href="{% url 'update' squirrel.Unique_Squirrel_ID %}">EDIT</a></li>
+		{% endfor %}
 	</ul>
-	{% endfor %}
-	
 </body>
 </html>
