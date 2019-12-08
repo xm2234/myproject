@@ -5,9 +5,11 @@ from django.db import connection
 
 from .models import Squirrel
 from .forms import SquirrelForm
+import random
 
 def map(request):
-    squirrels = Squirrel.objects.all()
+    squirrel_100 = random.sample(range(Squirrel.objects.all().count()),10)
+    squirrels = [Squirrel.objects.all()[i] for i in squirrel_100]
     context = {
         'squirrels':squirrels,
     }
