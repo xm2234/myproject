@@ -1,9 +1,26 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="UTF-8">
-    <title>stats</title>
+<style>
+table, th, td {
+  border: 1px solid black;
+}
+</style>
 </head>
 <body>
+
+<h2>STATS</h2>
+<p>age of squirrel.</p>
+
+<table style="width:100%">
+    {% for head,num in dict_1.items %}
+    <tr>
+	 <th>{{head}}:</th>
+	 <td>{{num}}</th>
+    </tr>
+    {% endfor %}
+</table>
+
 </body>
 </html>
+

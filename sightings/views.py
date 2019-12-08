@@ -55,8 +55,12 @@ def stats(request):
     with connection.cursor() as c:
         c.execute("select age,count(*) from sightings_Squirrel s group by age")
         result = c.fetchall()
-        
-
+        dict_1=dict()
+        for i in range(len(result)):
+            dict_1[result[i][0]] = result[i][1]
+        #dict_1[result[2][0]] = result[2][1]
+        #dict_1[result[3][0]] = result[3][1]
+        #dict_1['Unknown'] = result[0][1] + result[1][1]
     #primary fur color
 
     #location

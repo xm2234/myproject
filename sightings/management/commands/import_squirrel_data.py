@@ -15,15 +15,15 @@ class Command(BaseCommand):
 
         for item in data:
             s = Squirrel(
-                Latitude = item['Latitude'],
-                Longitude = item['Longitude'],
+                Latitude = item['X'],
+                Longitude = item['Y'],
                 Unique_Squirrel_ID = item['Unique Squirrel ID'],
                 Shift = item['Shift'],
                 Date = item['Date'],
                 Age = item['Age'],
                 Primary_Fur_Color = item['Primary Fur Color'],
                 Location = item['Location'],
-                Specific_Location = item['Specific_Location'],
+                Specific_Location = item['Specific Location'],
                 Running = item['Running'],
                 Chasing = item['Chasing'],
                 Climbing = item['Climbing'],
