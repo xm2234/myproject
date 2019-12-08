@@ -1,10 +1,11 @@
 from django.db import models
 
 class Squirrel(models.Model):
-    Latitude = models.FloatField(null = True)
-    Longitude = models.FloatField(null = True)
+    Latitude = models.FloatField(blank=True, null=True)
+    Longitude = models.FloatField(blank=True, null=True)
     Unique_Squirrel_ID = models.CharField(
-        max_length = 18,
+        max_length = 100,
+        blank=True,
         null = True,
     )
     AM = 'AM'
@@ -16,10 +17,11 @@ class Squirrel(models.Model):
     Shift = models.CharField(
         max_length = 18,
         choices = SHIFT_CHOICES,
-        default = AM,
+        blank=True, 
+        null=True,
     )
 
-    Date = models.DateField(null=True)
+    Date = models.DateField(blank=True, null=True)
 
     ADULT = 'Adult'
     JUVENILE ='Juvenile'
@@ -32,7 +34,7 @@ class Squirrel(models.Model):
     )
 
     Age = models.CharField(
-        max_length = 10,
+        max_length = 20,
         choices = AGE_CHOICES,
         null = True,
         blank = True,
@@ -62,7 +64,9 @@ class Squirrel(models.Model):
     )
     Location = models.CharField(
         max_length = 20,
+        choices = LOCATION_CHOICES,
         null = True,
+        blank=True,
     )
     Specific_Location=models.CharField(
         max_length=100,
@@ -70,15 +74,15 @@ class Squirrel(models.Model):
         blank = True,
     )
 
-    Running=models.BooleanField(null=True)
+    Running=models.BooleanField(blank=True, null=True)
 
-    Chasing=models.BooleanField(null=True)
+    Chasing=models.BooleanField(blank=True, null=True)
     
-    Climbing=models.BooleanField(null=True)
+    Climbing=models.BooleanField(blank=True, null=True)
     
-    Eating=models.BooleanField(null=True)
+    Eating=models.BooleanField(blank=True, null=True)
     
-    Foraging=models.BooleanField(null=True)
+    Foraging=models.BooleanField(blank=True, null=True)
     
     Other_Activities=models.CharField(
         max_length=100,
@@ -86,21 +90,21 @@ class Squirrel(models.Model):
         blank = True,
     )
     
-    Kuks=models.BooleanField(null=True)
+    Kuks=models.BooleanField(blank=True, null=True)
     
-    Quaas=models.BooleanField(null=True)
+    Quaas=models.BooleanField(blank=True, null=True)
     
-    Moans=models.BooleanField(null=True)
+    Moans=models.BooleanField(blank=True, null=True)
     
-    Tail_flags=models.BooleanField(null=True)
+    Tail_flags=models.BooleanField(blank=True, null=True)
     
-    Tail_twitches=models.BooleanField(null=True)
+    Tail_twitches=models.BooleanField(blank=True, null=True)
     
-    Approaches=models.BooleanField(null=True)
+    Approaches=models.BooleanField(blank=True, null=True)
     
-    Indifferent=models.BooleanField(null=True)
+    Indifferent=models.BooleanField(blank=True, null=True)
     
-    Runs_from=models.BooleanField(null=True)
+    Runs_from=models.BooleanField(blank=True, null=True)
 
     def __str__(self):
         return self.Unique_Squirrel_ID
