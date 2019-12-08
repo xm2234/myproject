@@ -9,14 +9,14 @@ from .forms import SquirrelForm
 def map(request):
     squirrels = Squirrel.objects.all()
     context = {
-        'sightings':squirrels,
+        'squirrels':squirrels,
     }
     return render(request, 'sightings/map.html',context)
 
 def sightings(request):
-    sightings = Squirrel.objects.all()
+    squirrels = Squirrel.objects.all()
     context = {
-        'squirrels': sightings,
+        'squirrels': squirrels,
     }
     return render(request, 'sightings/sightings.html',context)
 
