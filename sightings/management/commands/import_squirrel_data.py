@@ -1,12 +1,18 @@
 import csv
 
-from django.core.management.base import BaseCommand
+from django.core.management.base import BaseCommand, CommandError
 
 from sightings .models import Squirrel
 
 class Command(BaseCommand):
     def add_arguments(self, parser):
         parser.add_argument('csv_file')
+
+    def str_to_bool(self,x):
+        if x =='true':
+            return True
+        else:
+            return False
 
     def handle(self, *args, **options):
         with open(options['csv_file']) as fp:
@@ -33,20 +39,20 @@ class Command(BaseCommand):
                         Primary_Fur_Color = item['Primary Fur Color'],
                         Location = item['Location'],
                         Specific_Location = item['Specific Location'],
-                        Running = item['Running'],
-                        Chasing = item['Chasing'],
-                        Climbing = item['Climbing'],
-                        Eating = item['Eating'],
-                        Foraging = item['Foraging'],
+                        Running = self.str_to_bool(item['Running']),
+                        Chasing = self.str_to_bool(item['Chasing']),
+                        Climbing = self.str_to_bool(item['Climbing']),
+                        Eating = self.str_to_bool(item['Eating']),
+                        Foraging = self.str_to_bool(item['Foraging']),
                         Other_Activities = item['Other Activities'],
-                        Kuks = item['Kuks'],
-                        Quaas = item['Quaas'],
-                        Moans = item['Moans'],
-                        Tail_flags = item['Tail flags'],
-                        Tail_twitches = item['Tail twitches'],
-                        Approaches = item['Approaches'],
-                        Indifferent = item['Indifferent'],
-                        Runs_from = item['Runs from'],
+                        Kuks = self.str_to_bool(item['Kuks']),
+                        Quaas = self.str_to_bool(item['Quaas']),
+                        Moans = self.str_to_bool(item['Moans']),
+                        Tail_flags = self.str_to_bool(item['Tail flags']),
+                        Tail_twitches = self.str_to_bool(item['Tail twitches']),
+                        Approaches = self.str_to_bool(item['Approaches']),
+                        Indifferent = self.str_to_bool(item['Indifferent']),
+                        Runs_from = self.str_to_bool(item['Runs from']),
                     )
                     s.save()
              
