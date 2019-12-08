@@ -3,7 +3,7 @@
 <head>
 <style>
 table, th, td {
-  border: 1px solid black;
+  border: 2px solid black;
 }
 </style>
 </head>
@@ -12,11 +12,52 @@ table, th, td {
 <h2>STATS</h2>
 <p>age of squirrel.</p>
 
-<table style="width:100%">
+<table style="width:80%">
     {% for head,num in dict_1.items %}
     <tr>
 	 <th>{{head}}:</th>
 	 <td>{{num}}</th>
+    </tr>
+    {% endfor %}
+</table>
+
+
+<p>primary fur color of squirrel.</p>
+<table style="width:80%">
+    {% for head,num in dict_2.items %}
+    <tr>
+         <th>{{head}}:</th>
+         <td>{{num}}</th>
+    </tr>
+    {% endfor %}
+</table>
+
+<p>location of squirrel.</p>
+<table style="width:80%">
+    {% for head,num in dict_3.items %}
+    <tr>
+         <th>{{head}}:</th>
+         <td>{{num}}</th>
+    </tr>
+    {% endfor %}
+</table>
+
+<p>running of squirrel.</p>
+<table style="width:80%">
+    {% for head,num in dict_4.items %}
+    <tr>
+         <th>{{head}}:</th>
+         <td>{{num}}</th>
+    </tr>
+    {% endfor %}
+</table>
+
+<p>chasing of squirrel.</p>
+<table style="width:80%">
+    {% for head,num in dict_5.items %}
+    <tr>
+         <th>{{head}}:</th>
+         <td>{{num}}</th>
     </tr>
     {% endfor %}
 </table>

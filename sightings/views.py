@@ -21,7 +21,7 @@ def sightings(request):
     return render(request, 'sightings/sightings.html',context)
 
 def update(request, Unique_Squirrel_ID):
-    squirrel = Squirrel.objects.filter(Unique_Squirrell_ID = Unique_Squirrel_ID)[0]
+    squirrel = Squirrel.objects.filter(Unique_Squirrel_ID = Unique_Squirrel_ID)[0]
     if request.method == 'Post':
         # check form data
         form = SquirrelForm(request.POST, instance=squirrel)
@@ -58,14 +58,36 @@ def stats(request):
         dict_1=dict()
         for i in range(len(result)):
             dict_1[result[i][0]] = result[i][1]
-        #dict_1[result[2][0]] = result[2][1]
-        #dict_1[result[3][0]] = result[3][1]
-        #dict_1['Unknown'] = result[0][1] + result[1][1]
+    
     #primary fur color
-
+    with connection.cursor() as c:
+        c.execute("select primary_fur_color,count(*) from sightings_Squirrel s group by primary_fur_color") 
+        result = c.fetchall()
+        dict_2=dict() 
+        for i in range(len(result)):
+            dict_2[result[i][0]] = result[i][1]
+    
     #location
-
+    with connection.cursor() as c:
+        c.execute("select location,count(*) from sightings_Squirrel s group by location") 
+        result = c.fetchall()
+        dict_3=dict() 
+        for i in range(len(result)):
+            dict_3[result[i][0]] = result[i][1]
+    
     #running
-
+    with connection.cursor() as c:
+        c.execute("select running,count(*) from sightings_Squirrel s group by running") 
+        result = c.fetchall()
+        dict_4=dict() 
+        for i in range(len(result)):
+            dict_4[result[i][0]] = result[i][1]
+    
     #chasing
+    with connection.cursor() as c:
+        c.execute("select chasing,count(*) from sightings_Squirrel s group by chasing")
+        result = c.fetchall()
+        dict_5=dict()
+        for i in range(len(result)):
+            dict_5[result[i][0]] = result[i][1]
     return render(request,'sightings/stats.html',locals())
