@@ -30,8 +30,8 @@ class Command(BaseCommand):
                     d = date[2:4]
                     formal_date = y + '-' + m + '-' + d
                     s = Squirrel(
-                        Latitude = item['X'],
-                        Longitude = item['Y'],
+                        Latitude = item['Y'],
+                        Longitude = item['X'],
                         Unique_Squirrel_ID = item['Unique Squirrel ID'],
                         Shift = item['Shift'],
                         Date = formal_date,

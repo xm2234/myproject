@@ -17,7 +17,7 @@ def sightings(request):
     return render(request, 'sightings/sightings.html',context)
 
 def map(request):
-    squirrel_100 = random.sample(range(Squirrel.objects.all().count()),10)
+    squirrel_100 = random.sample(range(Squirrel.objects.all().count()),100)
     squirrels_ = [Squirrel.objects.all()[i] for i in squirrel_100]
     context = {
         'squirrels':squirrels_,
