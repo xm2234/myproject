@@ -25,13 +25,13 @@ def map(request):
     return render(request, 'sightings/map.html',context)
 
 def update(request, Unique_Squirrel_ID):
-    squirrel = Squirrel.objects.filter(Unique_Squirrel_ID = Unique_Squirrel_ID)[0]
-    if request.method == 'Post':
+    squirrel = Squirrel.objects.filter(Unique_Squirrel_ID = Unique_Squirrel_ID).first()
+    if request.method == 'POST':
         # check form data
         form = SquirrelForm(request.POST, instance=squirrel)
         if form.is_valid():
             form.save()
-            return redirect(f'/sightings/{Unique_Squirrel_ID}')
+            return redirect(f'/sightings/')
     else:
         form = SquirrelForm(instance=squirrel)
     context = {
