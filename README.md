@@ -43,4 +43,4 @@ Project Group 61, Section 1
 
 
 # Server Link
-https://kinetic-harbor-255421.appspot.com
+https://kinetic-harbor-255421.appspot.com/sightings/
