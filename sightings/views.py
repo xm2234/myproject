@@ -7,13 +7,7 @@ from .models import Squirrel
 from .forms import SquirrelForm
 import random
 
-def map(request):
-    squirrel_100 = random.sample(range(Squirrel.objects.all().count()),10)
-    squirrels_ = [Squirrel.objects.all()[i] for i in squirrel_100]
-    context = {
-        'squirrels':squirrels_,
-    }
-    return render(request, 'sightings/map.html',context)
+
 
 def sightings(request):
     squirrels = Squirrel.objects.all()
@@ -21,6 +15,14 @@ def sightings(request):
         'squirrels': squirrels,
     }
     return render(request, 'sightings/sightings.html',context)
+
+def map(request):
+    squirrel_100 = random.sample(range(Squirrel.objects.all().count()),10)
+    squirrels_ = [Squirrel.objects.all()[i] for i in squirrel_100]
+    context = {
+        'squirrels':squirrels_,
+    }
+    return render(request, 'sightings/map.html',context)
 
 def update(request, Unique_Squirrel_ID):
     squirrel = Squirrel.objects.filter(Unique_Squirrel_ID = Unique_Squirrel_ID)[0]
@@ -31,7 +33,7 @@ def update(request, Unique_Squirrel_ID):
             form.save()
             return redirect(f'/sightings/{Unique_Squirrel_ID}')
     else:
-        form = SquirrelForm()
+        form = SquirrelForm(instance=squirrel)
     context = {
         'form': form,
     }
@@ -49,7 +51,7 @@ def add(request):
     context = {
         'form': form,
     }
-    return render(request, 'sightings/edit.html', context)
+    return render(request, 'sightings/add.html', context)
 
 def stats(request):
     
