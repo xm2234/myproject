@@ -1,5 +1,5 @@
 # Squirrel Tracking Application
-This is an app that can start keeping track of all the known squirrels and plans to start with Central Park. It uses 2018 Central Park Squirrel Census data and allow users to add, update, and view squirrel data. 
+This is an app that can start keeping track of all the known squirrels and plans to start with Central Park. It uses 2018 Central Park Squirrel Census data and allow users to add, update, and view squirrel data. It also provides a map displaying squirrel positions.
 
 # Main Functions
 ## Management commands
@@ -15,7 +15,7 @@ There're five views in the web app:
 
 ### map
 Located at: /map
-Shows a map that displays the location of the squirrel sightings on an OpenStreets map
+Shows a map that displays the location of 100 squirrel sightings on an OpenStreets map
 
 ### sightings
 
