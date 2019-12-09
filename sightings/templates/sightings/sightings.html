@@ -1,16 +1,15 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>All Squirrels</title>
-</head>
-<body>
-	<h1><a href=add> Add New Sightings</a></h1>
-	<p>
-	<ul>
-	        {% for squirrel in squirrels %}
-		<li> {{squirrel}} <a href="{% url 'update' squirrel.Unique_Squirrel_ID %}">EDIT</a></li>
-		{% endfor %}
-	</ul>
-</body>
-</html>
+><ul>
+
+	<a href = "/sightings/add">
+		<button>
+			Add squirrels
+		</button>
+	</a>
+       {% for squirrel in squirrels  %}
+	<li> 
+		<a href = "/sightings/{{squirrel.Unique_Squirrel_ID}}">
+			{{squirrel.Unique_Squirrel_ID}}
+		</a>
+	</li>
+       {% endfor %}
+</ul>
