@@ -9,9 +9,9 @@ import random
 
 def map(request):
     squirrel_100 = random.sample(range(Squirrel.objects.all().count()),10)
-    squirrels = [Squirrel.objects.all()[i] for i in squirrel_100]
+    squirrels_ = [Squirrel.objects.all()[i] for i in squirrel_100]
     context = {
-        'squirrels':squirrels,
+        'squirrels':squirrels_,
     }
     return render(request, 'sightings/map.html',context)
 
